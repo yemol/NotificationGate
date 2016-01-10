@@ -1,0 +1,54 @@
+{
+  "name": "Notification_System",
+  "version": "0.1.0",
+  "description": "The service use to save notification and send this notification to admin through text message.",
+  "main": "start.js",
+  "scripts": {
+    "test": "babel-node test.js",
+    "start": "node start",
+    "initDatabase": "babel-node initdatabase.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yemol/NotificationGate.git"
+  },
+  "keywords": [
+    "restful",
+    "express",
+    "mysql",
+    "node"
+  ],
+  "author": "Yemol <yemol@gamefy.cn>",
+  "license": "ISC",
+  "dependencies": {
+    "babel-runtime": "^5.8.20",
+    "body-parser": "^1.13.3",
+    "cookie-parser": "^1.3.5",
+    "cors": "^2.7.1",
+    "ejs": "^2.3.4",
+    "elecpen": "^0.1.5",
+    "express": "4.*",
+    "mysql": "^2.9.0",
+    "node-uuid": "^1.4.3",
+    "react": "^0.14.2",
+    "react-addons-create-fragment": "^0.14.2",
+    "react-addons-pure-render-mixin": "^0.14.2",
+    "react-addons-transition-group": "^0.14.2",
+    "react-addons-update": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-tap-event-plugin": "^0.2.1",
+    "superagent": "^1.4.0",
+    "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-eslint": "^4.1.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/yemol/NotificationGate/wiki",
+    "email": "yemol@gamefy.cn"
+  },
+  "homepage": "http://www.gamefy.cn"
+}
