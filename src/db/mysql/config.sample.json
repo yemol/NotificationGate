@@ -1,0 +1,8 @@
+{
+  "mysqlconnect": "",
+  "mysqlUserID": "",
+  "mysqlPassword": "",
+  "databaseName": "",
+  "connectionLimit": 10,
+  "timeout": 40000
+}
