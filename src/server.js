@@ -5,6 +5,7 @@ import path from "path"
 import config from "./config.json"
 import db from "./db"
 import notificationListener from "./lib/NotificationListener"
+import operationLogListener from "./lib/OperationLogListener"
 import app from "./lib/app"
 import tool from "./lib/tool"
 
@@ -37,8 +38,12 @@ app.get("/", function (req, res) {
 // Request Head:
 // passcode = [passcode for remote validation]
 // detail = [detail information for the message]
-app.route('/add_notification')
+app.route('/notification/add')
   .get((req, res) => { tool.remoteValidation(req, res, notificationListener.listener) })
+  .all( function (req, res) { res.end() } )
+
+app.route('/notification/add')
+  .get((req, res) => { tool.remoteValidation(req, res, operationLogListener.listener) })
   .all( function (req, res) { res.end() } )
 
 const server = app.listen(config.port, function (error) {

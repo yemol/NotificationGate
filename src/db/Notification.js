@@ -18,6 +18,7 @@ export default class Notification {
   fill (row, notification) {
     try {
       if (row !== null && row !== undefined) {
+        notification = new Notification()
         notification.id = row.id
         notification.from = row.from
         notification.message = row.message
@@ -26,7 +27,7 @@ export default class Notification {
         app.logger.info("Notification.fill: " + notification.showMe())
       }
     } catch (e) {
-      app.logger.error("Notification.fill: Fill data error. Error is [" + e + "] data is [" + this.showMe() + "]")
+      app.logger.error("Notification.fill: Fill data error. Error is [" + e + "] data is [" + operationLog.showMe() + "]")
     } finally {
       return notification
     }
@@ -44,58 +45,4 @@ export default class Notification {
     })
   }
 
-  // static getOne (done, notification) {
-  //   try {
-  //     connection = mysql.connect()
-  //     if (connection !== null) {
-  //       connection.query("\
-  //         SELECT * FROM `" + config.databaseName + "`.`Notification` WHERE `id` = ?", [ notification.id ],
-  //         (err, result) => {
-  //           if (err != null) {
-  //             return done(err, null)
-  //           } else if (result === null || result.length === 0) {
-  //             return done("No Notification found", null)
-  //           } else {
-  //             return done(null, notification.fill(result[0]))
-  //           }
-  //         })
-  //     }
-  //   } catch (e) {
-  //     app.logger.error("Notification.get: Get data error. Error is [" + e + "] data is [" + this.showMe() + "]")
-  //     return done("Get data error. ", null)
-  //   }
-  //   finally {
-  //     mysql.end()
-  //   }
-  // }
-
-  // static getAfter (done, notification) {
-  //   try {
-  //     connection = mysql.connect()
-  //     if (connection !== null) {
-  //       connection.query("\
-  //         SELECT * FROM `" + config.databaseName + "`.`Notification` WHERE `timeMark` > ?", [ notification.timeMark ],
-  //         (err, result) => {
-  //           if (err != null) {
-  //             return done(err, null)
-  //           } else if (result === null || result.length === 0) {
-  //             return done("No Notification found", null)
-  //           } else {
-  //
-  //             const notifications = new Array[result.length]
-  //             for (let i=0;i<result.length;i++) {
-  //               notifications[i] = notification.fill(result[i])
-  //             }
-  //             return done(null, notifications)
-  //           }
-  //         })
-  //     }
-  //   } catch (e) {
-  //     app.logger.error("Notification.get: Get data error. Error is [" + e + "] data is [" + this.showMe() + "]")
-  //     return done("Get data error. ", null)
-  //   }
-  //   finally {
-  //     mysql.end()
-  //   }
-  // }
 }
